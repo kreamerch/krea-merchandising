@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+/* 📦 Cargar fuente Inter desde /public/fonts */
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-VariableFont_slnt,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 🌈 Variables de marca */
+:root {
+  --color-primary: #06BEAE;     /* Verde aguamarina */
+  --color-secondary: #044A59;   /* Azul petróleo */
+  --color-accent: #06BFAF;      /* Variante hover */
+  --color-muted: #AAABB0;       /* Gris claro */
+  --color-border: #5C5561;      /* Gris neutro */
+
+  --background: #ffffff;
+  --foreground: #171717;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'Courier New', monospace;
+}
+
+/* 🎯 Compatibilidad con @theme inline */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-muted: var(--color-muted);
+  --color-border: var(--color-border);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+/* 🌙 Modo oscuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* 🖋️ Estilos base */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
