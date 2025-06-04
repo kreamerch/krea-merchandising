@@ -22,8 +22,8 @@ export default function Header() {
   <Image
     src="/logo-krea-merchandising.svg"
     alt="Logo"
-    width={120}  
-    height={120}
+    width={100}  
+    height={100}
     className="transition-transform duration-300 group-hover:scale-105"
   />
   
