@@ -23,20 +23,24 @@ export default function ProductCard({
   const addItem = useCartStore((state) => state.addItem)
 
   return (
-    <div className="border rounded-xl p-4 shadow-sm hover:shadow-md transition">
+    <div className="border border-border rounded-xl p-4 shadow-sm hover:shadow-md transition bg-background text-foreground">
       {/* Imagen con enlace */}
-      <Link href={`/productos/${slug}`}>
-        <div className="aspect-square w-full mb-3 bg-neutral-100 rounded-lg overflow-hidden">
+      <Link
+        href={`/productos/${slug}`}
+        className="block group cursor-pointer"
+        aria-label={`Ver detalles de ${nombre}`}
+      >
+        <div className="aspect-square w-full mb-3 bg-muted rounded-lg overflow-hidden">
           {imagen ? (
             <Image
               src={imagen}
-              alt={nombre}
+              alt={`Imagen del producto ${nombre}`}
               width={400}
               height={400}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
           ) : (
-            <div className="flex items-center justify-center h-full text-sm text-neutral-500">
+            <div className="flex items-center justify-center h-full text-sm text-muted">
               Imagen no disponible
             </div>
           )}
@@ -44,17 +48,12 @@ export default function ProductCard({
       </Link>
 
       <h3 className="font-semibold text-lg">{nombre}</h3>
-      <p className="text-sm text-neutral-500 mb-2">S/ {precio}</p>
+      <p className="text-sm text-muted mb-2">S/ {precio.toFixed(2)}</p>
 
       <Button
-        onClick={() =>
-          addItem({
-            id,
-            nombre,
-            slug,
-            precio,
-          })
-        }
+        onClick={() => addItem({ id, nombre, slug, precio })}
+        aria-label={`Agregar ${nombre} a la cotización`}
+        className="btn-primary"
       >
         Agregar a cotización
       </Button>

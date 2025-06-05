@@ -13,7 +13,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = 'default', size = 'md', ...props }, ref) => {
-    const baseClasses = 'rounded-md font-medium transition'
+    const baseClasses = 'rounded-md font-medium transition cursor-pointer'
 
     const variants: Record<Variant, string> = {
       default: 'bg-blue-600 text-white hover:bg-blue-700',

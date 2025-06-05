@@ -7,7 +7,7 @@ import NavLink from './NavLink'
 
 const links = [
   { href: '/', label: 'Inicio' },
-  { href: '/catalogo', label: 'Catálogo' },
+  { href: '/productos', label: 'Catálogo' },
   { href: '/servicios', label: 'Servicios' },
   { href: '/nosotros', label: 'Nosotros' },
   { href: '/contacto', label: 'Contacto' },
@@ -16,14 +16,16 @@ const links = [
 export default function MobileMenu() {
   const [open, setOpen] = useState(false)
 
+  const handleClose = () => setOpen(false)
+
   return (
     <div className="md:hidden">
       <button
         onClick={() => setOpen(!open)}
-        aria-label="Menú móvil"
-        className="p-2 rounded-md hover:bg-gray-100 transition"
+        aria-label="Abrir menú de navegación"
+        className="p-2 rounded-md hover:bg-muted/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
       >
-        {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        {open ? <X className="w-6 h-6 text-foreground" /> : <Menu className="w-6 h-6 text-foreground" />}
       </button>
 
       <AnimatePresence>
@@ -33,11 +35,15 @@ export default function MobileMenu() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-16 left-0 w-full bg-white shadow-md z-40 p-4 border-t"
+            className="absolute top-16 left-0 w-full bg-background shadow-md z-40 p-4 border-t border-border"
           >
-            <nav className="flex flex-col gap-3">
+            <nav className="flex flex-col gap-3" aria-label="Menú móvil">
               {links.map((link) => (
-                <NavLink key={link.href} href={link.href}>
+                <NavLink
+                  key={link.href}
+                  href={link.href}
+                  onClick={handleClose}
+                >
                   {link.label}
                 </NavLink>
               ))}

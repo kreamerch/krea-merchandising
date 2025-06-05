@@ -1,28 +1,21 @@
 @import "tailwindcss";
 
-/* 📦 Cargar fuente Inter desde /public/fonts */
-@font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter-VariableFont_slnt,wght.ttf') format('truetype');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* 🌈 Variables de marca */
 :root {
-  --color-primary: #06BEAE;     /* Verde aguamarina */
-  --color-secondary: #044A59;   /* Azul petróleo */
-  --color-accent: #06BFAF;      /* Variante hover */
-  --color-muted: #AAABB0;       /* Gris claro */
-  --color-border: #5C5561;      /* Gris neutro */
+  --color-primary: #0077D2;     /* Azul accesible para botones, enlaces */
+  --color-secondary: #002C48;   /* Azul oscuro para títulos, textos importantes */
+  --color-accent: #02B8BC;      /* Turquesa para hover, focus-visible, detalles */
+  --color-muted: #6B7280;       /* Gris medio legible para texto secundario */
+  --color-border: #9CA3AF;      /* Gris claro accesible para bordes */
 
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;        /* Gris casi negro para texto principal */
 
   --font-sans: 'Inter', sans-serif;
   --font-mono: 'Courier New', monospace;
 }
+
 
 /* 🎯 Compatibilidad con @theme inline */
 @theme inline {

@@ -13,16 +13,15 @@ type Props = {
 export function AddToCartButton({ id, nombre, slug, precio }: Props) {
   const addItem = useCartStore((state) => state.addItem)
 
+  const handleClick = () => {
+    addItem({ id, nombre, slug, precio })
+  }
+
   return (
     <Button
-      onClick={() =>
-        addItem({
-          id,
-          nombre,
-          slug,
-          precio,
-        })
-      }
+      onClick={handleClick}
+      aria-label={`Agregar ${nombre} a la cotización`}
+      className="btn-primary"
     >
       Agregar a cotización
     </Button>
